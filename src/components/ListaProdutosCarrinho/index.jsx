@@ -10,16 +10,16 @@ const ListaProdutosCarrinho = ({ carrinho }) => {
       {carrinho.length === 0 ? (
         <p className="text-center my-5">Não há produtos no carrinho</p>
       ) : (
-        carrinho.map((itemCarrinho) =>
-          location.pathname === "/carrinho" ? (
+        carrinho.map((itemCarrinho) => {
+          return location.pathname === "/carrinho" ? (
             <ItemCarrinho key={itemCarrinho.id} itemCarrinho={itemCarrinho} />
           ) : (
             <ItemCarrinhoSuspenso
               key={itemCarrinho.id}
               itemCarrinho={itemCarrinho}
             />
-          )
-        )
+          );
+        })
       )}
     </ul>
   );
